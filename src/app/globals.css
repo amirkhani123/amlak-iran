@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary:#1d4ed8;
+  --second: #ffffff;
+  --dark:#0f172a;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--second);
+  max-width: 1200px;
+  margin: auto;
+  font-weight: 200;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+input,textarea,button{
+  font-family: inherit;
+  color: inherit;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.datePicker input{
+  text-align: center;
+  width: 130px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+.lable-radio{
+  @apply  bg-blue-500 p-1 rounded-md text-white font-light flex my-1 gap-2 ;
+}
+.button-hover{
+  @apply  transition-all duration-300 ease-in hover:opacity-50;
+}
+.home-card{
+  @apply w-[205px] h-[215px]  m-1  flex items-center flex-col  rounded-md overflow-hidden shadow-3xl transition-all ease-in duration-300 cursor-pointer  max-sm:w-[350px] max-sm:w-[315px] mx-auto my-3;
+}
+.home-card p{
+  @apply text-primary mt-2 text-lg font-medium dark:text-second ;
+}
+.home-card:hover{
+  @apply   -translate-y-10 ;
+}
+.home-list{
+  @apply w-[165px] flex items-center gap-5 font-light text-lg bg-blue-200 py-1 px-2 rounded-md;
+}
+.p{
+  @apply flex items-center gap-2
+}
+.box-sidbar{
+  @apply w-full flex items-center flex-col shadow-3xl rounded-lg p-2 my-3
+}
+
+.my-transitian{
+  @apply transition-all duration-300 ease-in
+}
+.list-style::before{
+ content: " ○";
+ color: var(--primary);
+ margin-left: 5px;
+}
+.text-dashboard{
+  @apply w-full font-light  my-1
+}
+
+.header-list{
+  position: relative;
+  transition: all 0.5s ease-in;
+}
+.header-list::before{
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1.5px;
+  bottom: -1.5px;
+  right: 1px;
+  background-color: rgb(0, 102, 255) ;
+  transition: all 0.5s ease-in;
+} 
+.header-list:hover::before{
+  width: 100%;
+}
+@layer components{
+  .my-hover{
+    @apply transition-all duration-500 ease-in
+  }
+  .li-hover{
+    @apply relative before:w-0 before:absolute before:h-[2px] before:bg-blue-500 before:top-6 before:right-1 hover:before:w-full hover:text-blue-500 my-hover before:my-hover 
+  }.li-static{
+    @apply relative before:w-full before:absolute before:h-[2px] before:bg-blue-300 before:top-6 before:right-1  text-blue-300
+  }
+  
+}
